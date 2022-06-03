@@ -6,34 +6,21 @@ class Imposto2022:
                 efective = 2826.65-1903.98
             else:
                 efective = salario-1903.98
-                pass
-            v1 = (efective)*0.075
-            # print(v1)
-            valor = valor+v1
-            pass
+            valor = valor+(efective)*0.075
         if(salario > 2826.65):
             if(salario > 3751.05):
                 efective = 3751.05-2826.65
             else:
                 efective = salario-2826.65
-            v2 = (efective)*0.15
-            # print(v2)
-            valor = valor+v2
-            pass
+            valor = valor+(efective)*0.15
         if(salario > 3751.05):
             if(salario > 4664.68):
                 efective = 4664.68-3751.05
             else:
                 efective = salario-3751.05
-            v3 = (efective)*0.225
-            # print(v3)
-            valor = valor+v3
-            pass
+            valor = valor+(efective)*0.225
         if(salario > 4664.68):
-            v4 = (salario-4664.68)*0.275
-            # print(v4)
-            valor = valor+v4
-            pass
+            valor = valor+(salario-4664.68)*0.275
         return valor
 
     def calcular_inss(self, salario):
@@ -42,7 +29,6 @@ class Imposto2022:
             inss = 1212*0.075
         else:
             inss = salario*0.075
-        # print(inss)
         if(salario > 1212):
             if(salario > 2427.35):
                 inss = inss+(2427.35-1212)*0.09
@@ -61,7 +47,6 @@ class Imposto2022:
                 inss = inss+efective*0.14
             else:
                 inss = inss+(7087.22-3641.03)*0.14
-        # print(salario, (salario-3641.03)*0.14, salario > 3641.03)
         return inss
 
 
@@ -87,7 +72,7 @@ if(__name__ == "__main__"):
         print(f"\n\n\nSalario: {args.salario}\n")
         salario_liquido = calcular_contribuicao(args.salario)
     else:
-        for a in range(15):
+        for a in range(9):
             salario = 1000+a*1000
             print(f"\n\n\nSalario: {salario}\n")
             salario_liquido = calcular_contribuicao(salario)
