@@ -86,8 +86,7 @@ class Imposto2022Proposta(Imposto2022):
             valor = valor+(salario-4664.68)*0.275
         return valor
 
-
-if(__name__ == "__main__"):
+def main():
     import argparse
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--salario', type=int,
@@ -110,3 +109,6 @@ if(__name__ == "__main__"):
             if(a != 0):
                 print(f"Diferença:{salario_liquido-ant_salario}")
             ant_salario = salario_liquido
+
+if(__name__ == "__main__"):
+    main();

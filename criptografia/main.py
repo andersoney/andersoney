@@ -9,6 +9,7 @@ i = 0
 
 
 def aa(num_round):
+    import base64
     print(f"Number of rounds :{num_round}")
     chave = "ChaveDeTesteasdasadasd1asdlkajs99293182312asdasds"
     texto = "Bom dia, testando com textos grandes para garantir que o processo funciona"
@@ -16,8 +17,10 @@ def aa(num_round):
     random.seed(10)
     process = DESProcess(chave)
     cript = process.criptografia(texto, num_round=num_round)
+    cript = base64.b64encode(cript.encode()).decode()
     print(f"cripto:{cript}")
     random.seed(10)
+    cript=base64.b64decode(cript).decode()
     process = DESProcess(chave)
     decript = process.criptografia(cript, num_round=num_round)
     print(f"decript:{decript}")
