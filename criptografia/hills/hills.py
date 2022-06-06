@@ -2,8 +2,6 @@ import random
 from scipy import linalg
 import numpy as np
 import scipy
-# from mypackage.hill import Hill
-
 
 class Hill:
     def find_multiplicative_inverse(self, determinant, len_alfabeto):
@@ -66,16 +64,12 @@ class Hill:
         len_matriz = shape[0]*shape[1]
         text, len_text = self.normalize_text(text, len_matriz)
         num_natrizes = int(len_text/len_matriz)
-        # print(num_natrizes)
-
         matrizes = []
         for _ in range(num_natrizes):
             local_matriz, text = self.one_matriz_convert(
                 shape[0], shape[1], alfabeto, text)
             matrizes.append(local_matriz)
             pass
-        # print(text)
-        # print(matrizes)
         return matrizes
 
     def convert_matriz_to_text(self, matriz, alfabeto):
@@ -155,18 +149,12 @@ def testando_fatores_iniciais(alfabeto):
 
 hill = Hill()
 alfabeto = 'abcdefghijklmnopqrstuvwxyz'
-# matriz_inv = testando_fatores_iniciais(alfabeto)
-# exit()
 
 if(__name__ == '__main__'):
     matriz = np.matrix([[1,  0, 2],
                        [10,  20, 15],
                        [0, 1, 2]], dtype=np.float64)
     chave = 'cabababababasdaba'
-    # matriz,text = hill.one_matriz_convert(3,3,alfabeto,chave)
-    # matriz = np.array([[9, 4], [5, 7]], dtype=np.float64)
-    # print(f"Chave:\n{matriz}\tlen_alfabeto:{len(alfabeto)}")
-    # text = "totestando nao me enche ze!\\\\\\\'\"".lower()
     text = input()
     text = text.replace(' ', '')
     text="ret"
@@ -181,6 +169,3 @@ if(__name__ == '__main__'):
     print(f"Decriptando:")
     decripto_text = hill.decript(cripto_text, matriz, alfabeto)
     print(decripto_text)
-
-
-pass

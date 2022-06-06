@@ -6,7 +6,7 @@ class Vegenere:
     def convert_text_int(self, character):
         try:
             return self.alfabeto.index(character)
-        except:
+        except Exception:
             return -1
 
     def convert_int_text(self, inteiro):

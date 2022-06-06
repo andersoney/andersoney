@@ -52,7 +52,7 @@ class Imposto2022:
                 inss = inss+(7087.22-3641.03)*0.14
         return inss
 
-    def calcular_contribuicao(self, salario, proposta=False):
+    def calcular_contribuicao(self, salario):
         inss = self.calcular_inss(salario)
         ir = self.calcularImposto(salario-inss)
         salario_liquido = salario-inss-ir
@@ -86,6 +86,7 @@ class Imposto2022Proposta(Imposto2022):
             valor = valor+(salario-4664.68)*0.275
         return valor
 
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='Process some integers.')
@@ -98,17 +99,16 @@ def main():
     calculator = Imposto2022Proposta()
     if(args.salario):
         print(f"\n\n\nSalario: {args.salario}\n")
-        salario_liquido = calculator.calcular_contribuicao(
-            args.salario, args.proposta)
+        calculator.calcular_contribuicao(args.salario)
     else:
         for a in range(9):
             salario = 1000+a*1000
             print(f"\n\n\nSalario: {salario}\n")
-            salario_liquido = calculator.calcular_contribuicao(
-                salario, args.proposta)
+            salario_liquido = calculator.calcular_contribuicao(salario)
             if(a != 0):
                 print(f"Diferença:{salario_liquido-ant_salario}")
             ant_salario = salario_liquido
 
+
 if(__name__ == "__main__"):
-    main();
+    main()
